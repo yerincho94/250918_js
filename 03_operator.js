@@ -29,7 +29,7 @@ console.log("2 ** (1/3) = ", 2 ** (1 / 3));
 
 /*
     03_operator.js에 복합대입연산자에 대한 상세한 설명과 배경 지식을 코드 내 주석으로 표시해줘
-    
+
     복합 대입 연산자 (Compound Assignment Operators)
 
     복합 대입 연산자는 산술 연산자와 대입 연산자를 결합한 형태의 연산자입니다.
@@ -67,3 +67,48 @@ console.log("a=", a); // a = a / 5
 
 a %= 2;
 console.log("a=", a); // a = a % 2
+
+// [비교연산자]
+//숫자 (부등호)
+console.log("10 > 5:", 10 > 5); //true
+console.log("10 < 5:", 10 < 5); //false
+// a > b => 맞으면 true, 틀리면 false
+
+console.log('"a" > "b":', "a" > "b"); //ASCII code으로 비교
+
+//동등 연산자
+// 같다 = , = -> 대입연산자.
+// ==, != -> 같은지 여부
+console.log("1 == 1:", 1 == 1); //true
+console.log("1 == '1':", 1 == "1"); //true -> 자동 변환을 시켜버림..
+console.log("'1' === 1:", "1" === 1); //false
+
+//자바스크립트의 자동변환 2가지 종류
+/*
+    1) 문자-숫자 간 자동변환
+    2) truthy / falsy한 값
+*/
+
+/* 
+    더하기 연산의 경우 : 
+        문자와 숫자를 더하기를 시도하면, 문자를 덧셈 연산을 할 경우 연결(concatenate)을 하고,
+        숫자는 뎃셈(add)를 하는데, 덧셈에서는 문자가 이김
+
+    */
+console.log(1 + "1");
+
+// [일치연산자]가 별도로 존재 '==='
+//'자동 변환 없이' 값 자체로 비교하겠다
+console.log("'1' === 1:", "1" === 1); //false
+console.log("1" !== 1); //true
+
+//2) truthy / falsy한 값
+// 비어있다, 없다 -> false . [], {}, 0, undefined, null, ""
+// 0이 아닌 값(NaN 포함). [....], {....}, "..." -> true
+console.log("0 == false:", 0 == false); //true -> 자동변환 허용시 false 취급 가동
+console.log("0 === false:", 0 === false); //false -> 자동변환 비허용
+
+//js 놀리는 문구 중 하나. (자동변환 핵심)
+console.log("" == false); //true : 비어있는 류의 데이터는 falsy
+console.log("0" == false); //true : false도 일종의 숫자 처럼 판정 (false:0, true:1)
+console.log("" == "0"); //false : 문자열간 비교가 되면서 정말 문자들 사이의 비교가 됨
