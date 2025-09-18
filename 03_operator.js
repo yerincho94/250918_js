@@ -103,8 +103,8 @@ console.log("'1' === 1:", "1" === 1); //false
 console.log("1" !== 1); //true
 
 //2) truthy / falsy한 값
-// 비어있다, 없다 -> false . [], {}, 0, undefined, null, ""
-// 0이 아닌 값(NaN 포함). [....], {....}, "..." -> true
+// 비어있다, 없다 -> false . [], {}, 0, undefined, null, "", NaN
+// 0이 아닌 값. [....], {....}, "..." -> true
 console.log("0 == false:", 0 == false); //true -> 자동변환 허용시 false 취급 가동
 console.log("0 === false:", 0 === false); //false -> 자동변환 비허용
 
