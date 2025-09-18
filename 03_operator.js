@@ -112,3 +112,65 @@ console.log("0 === false:", 0 === false); //false -> 자동변환 비허용
 console.log("" == false); //true : 비어있는 류의 데이터는 falsy
 console.log("0" == false); //true : false도 일종의 숫자 처럼 판정 (false:0, true:1)
 console.log("" == "0"); //false : 문자열간 비교가 되면서 정말 문자들 사이의 비교가 됨
+
+// 논리연산자
+console.log("[논리연산자]");
+//boolean(true/false)의 형태를 -> 합성, 변환하는 형태의 연산자
+// &&, ||, !
+// 연산자 -> 피연산자 1개 이상.
+//typeof : 얘도 연산자임
+// !
+console.log(!true); //false -> not 연산자
+console.log(!0); //true -> syntactic sugar (뭔가 넣으면 멋있는거)
+
+// && (AND) : double ampersand  -> &(1개) : 비트 연산자임
+// || (OR)  : double pipeline   -> |(1개) : 비트 연산자임
+
+// A && B : 둘 다 true이면 true
+// -> A가 falsy하면 B를 평가하지 않고, A값으로 값을 취급하고 아닐 경우 B로 취급한다.
+
+// A || B : 둘 다 false이면 false, 둘 중 하나라도 true이면 true
+// -> A가 truthy하면 B를 평가하지 않고, A값으로 값을 취급하고 아닐 경우 B로 취급한다.
+
+console.log("true && true", true && true); // 둘 다 true여야 true다
+console.log("true && false", true && false);
+console.log("false && true", false && true);
+console.log("false && false", false && false);
+console.log("10 && 5", 10 && 5);
+console.log("10 && false", 10 && false);
+console.log("0 && 5", 0 && 5);
+console.log("0 && false", 0 && false);
+// 앞에가 false로 취급되는 값이면 뒤에 값을 판단하지 않는다
+
+console.log("true || true", true || true); // 둘 다 false여야 false다?
+console.log("true || false", true || false);
+console.log("false || true", false || true);
+console.log("false || false", false || false);
+console.log("10 || 5", 10 || 5);
+console.log("10 || false", 10 || false);
+console.log("0 || 5", 0 || 5);
+console.log("0 || false", 0 || false);
+// 앞에가 true로 취급되는 값이면 뒤에 값을 판단하지 않는다
+
+// 복합대입연산자 -> 증감연산자
+// 변수++, ++변수, 변수--, --변수.
+// 변수를 1씩 증가 혹은 감소 시켜주고 바로 대입시켜주는 연산자 -> 바로 변수처럼 쓸 수 있음
+let i = 0;
+console.log("i++", i++); // 원래는 대입연산자는 이렇게 바로 못씀. 그런데 증감연산자는 바로 써줄 수 있음.
+// ++ 혹은 --의 위치가 중요함. 먼저 등장하면 증감 연산을 '마친 상태'에서 사용하고. 뒤에 등장하면 호출한 다음 연산.
+console.log("++i", ++i);
+false && i++; // 앞이 false면 뒤에까지 가지 않음
+console.log(i); // 단축해서.
+true || i++; // 앞이 true면 뒤에까지 가지 않음
+console.log(i); // 단축해서.
+
+const v = undefined; // 비어있는 데이터
+console.log(v || "default"); // v가 비어있으면
+
+// boolean -> 조건문.
+// 값을 평가 -> 연산자 1,2개. 피연산자. 3개 연산자. 조건연산자.
+// 삼항(조건)연산자.
+// condition ? true일 때 : false일 때
+// Math.random (0 ~ 1 랜덤 한 값.)
+const message = Math.random() > 0.5 ? "당첨입니다" : "꽝입니다";
+console.log(message);
